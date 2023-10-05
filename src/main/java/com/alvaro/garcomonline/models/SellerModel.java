@@ -18,12 +18,20 @@ public class SellerModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_user")
-    Integer id;
+    @Column(name = "id_seller")
+    private Integer id;
+
     @NotBlank(message = "O nome é obrigatório")
     @Length(min = 3, max = 35, message = "O nome deve ter no máximo {max} caracteres")
-    String nome;
+    private String nome;
+
     @NotBlank
-    String cpnj;
-    String description;
+    private String cpnj;
+
+    private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "id_address")
+    private AddressModel addressModel;
+
 }

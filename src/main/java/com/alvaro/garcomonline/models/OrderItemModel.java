@@ -17,8 +17,18 @@ public class OrderItemModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_user")
-    Integer id;
+    @Column(name = "id_order_item")
+    private Integer id;
+
     @NotNull
-    Integer quantity;
+    private Integer quantity;
+
+    @ManyToOne
+    @JoinColumn(name = "id_order")
+    private OrderModel orderModel;
+
+    @ManyToOne
+    @JoinColumn(name = "id_products")
+    private ProductModel productModel;
+
 }

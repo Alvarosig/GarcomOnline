@@ -17,11 +17,15 @@ public class AddressModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_user")
-    Integer id;
-    String city;
+    @Column(name = "id_address")
+    private Integer id;
+
+    private String city;
+
     @NotBlank
-    String address;
-    Integer number;
-    String cep;
+    private String address;
+
+    private Integer number;
+
+    private String cep;
 }

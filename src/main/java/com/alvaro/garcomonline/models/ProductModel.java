@@ -21,12 +21,20 @@ public class ProductModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_user")
-    Integer id;
+    @Column(name = "id_product")
+    private Integer id;
+
     @NotBlank (message = "O nome é obrigatório")
     @Length(min = 3, max = 35, message = "O nome deve ter no máximo {max} caracteres")
-    String nome;
-    @NotNull
-    BigDecimal price;
-    Boolean status;
+    private String nome;
+
+    @NotBlank
+    private BigDecimal price;
+
+    private Boolean status;
+
+    @ManyToOne
+    @JoinColumn(name = "id_seller")
+    private SellerModel sellerModel;
+
 }
