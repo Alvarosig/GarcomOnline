@@ -8,5 +8,5 @@ import org.springframework.web.bind.annotation.RestController;
 public class OrderController {
 
     @Autowired
-    OrderRepository orderRepository;
+    private OrderRepository orderRepository;
 }

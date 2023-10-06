@@ -1,9 +1,12 @@
-package com.alvaro.garcomonline.models;
+package com.alvaro.garcomonline.models.dtos;
 
-import jakarta.persistence.*;
+import com.alvaro.garcomonline.models.AddressModel;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 
 import java.time.LocalDate;
@@ -12,17 +15,11 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Getter
 @Setter
-@EqualsAndHashCode(of = "id")
-@Entity
-@Table(name = "TB_Users", schema = "garcom")
-public class UserModel {
+public class UserDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_user")
     private Integer id;
 
-    @NotBlank (message = "O nome é obrigatório")
+    @NotBlank(message = "O nome é obrigatório")
     @Length(min = 3, max = 35, message = "O nome deve ter no máximo {max} caracteres")
     private String fullName;
 
@@ -32,8 +29,6 @@ public class UserModel {
     @NotNull
     private LocalDate dateOfBirth;
 
-    @ManyToOne
-    @JoinColumn(name = "id_address")
-    private AddressModel addressModel;
+    private Integer addressModelId;
 
 }

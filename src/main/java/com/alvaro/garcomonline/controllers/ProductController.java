@@ -8,5 +8,5 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductController {
 
     @Autowired
-    ProductRepository productRepository;
+    private ProductRepository productRepository;
 }

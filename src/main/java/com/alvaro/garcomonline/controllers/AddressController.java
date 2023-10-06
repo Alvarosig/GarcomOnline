@@ -8,5 +8,5 @@ import org.springframework.web.bind.annotation.RestController;
 public class AddressController {
 
     @Autowired
-    AddressRepository addressRepository;
+    private AddressRepository addressRepository;
 }

@@ -2,6 +2,7 @@ package com.alvaro.garcomonline.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -25,9 +26,10 @@ public class SellerModel {
     @Length(min = 3, max = 35, message = "O nome deve ter no máximo {max} caracteres")
     private String nome;
 
-    @NotBlank
+    @NotNull
     private String cpnj;
 
+    @NotNull
     private String description;
 
     @ManyToOne
