@@ -1,6 +1,7 @@
 package com.alvaro.garcomonline.models.dtos;
 
 import com.alvaro.garcomonline.models.AddressModel;
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -23,12 +24,16 @@ public class UserDTO {
     @Length(min = 3, max = 35, message = "O nome deve ter no máximo {max} caracteres")
     private String fullName;
 
-    @NotNull
+    @Column(unique = true)
+    private String username;
+
+    @NotBlank
     private String email;
 
     @NotNull
     private LocalDate dateOfBirth;
 
-    private Integer addressModelId;
+    // Substituir para o model de Address
+    private AddressModel addressModel;
 
 }

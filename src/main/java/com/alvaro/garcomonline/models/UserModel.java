@@ -26,13 +26,16 @@ public class UserModel {
     @Length(min = 3, max = 35, message = "O nome deve ter no máximo {max} caracteres")
     private String fullName;
 
+    @Column(unique = true)
+    private String username;
+
     @NotNull
     private String email;
 
     @NotNull
     private LocalDate dateOfBirth;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_address")
     private AddressModel addressModel;
 

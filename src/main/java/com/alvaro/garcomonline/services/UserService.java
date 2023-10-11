@@ -1,16 +1,19 @@
 package com.alvaro.garcomonline.services;
 
-import com.alvaro.garcomonline.models.AddressModel;
-import com.alvaro.garcomonline.models.UserModel;
 import com.alvaro.garcomonline.models.dtos.UserDTO;
-import com.alvaro.garcomonline.services.servicesImp.UserServiceImpl;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface UserService {
 
-    Optional<UserModel> findById(Integer id);
+    Optional<UserDTO> findById(Integer id);
 
-    UserModel saveUser (UserDTO userDTO);
+    UserDTO saveUser (UserDTO userDTO);
 
+    void deleteUser (Integer id);
+
+    UserDTO updateUser (Integer id, UserDTO userDTO);
+
+    List<UserDTO> listAllUsers();
 }
