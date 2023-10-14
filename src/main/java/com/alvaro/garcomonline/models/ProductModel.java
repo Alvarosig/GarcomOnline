@@ -27,7 +27,7 @@ public class ProductModel {
 
     @NotBlank (message = "O nome é obrigatório")
     @Length(min = 3, max = 35, message = "O nome deve ter no máximo {max} caracteres")
-    private String nome;
+    private String name;
 
     @NotNull
     private BigDecimal price;

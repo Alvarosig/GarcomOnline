@@ -1,6 +1,5 @@
 package com.alvaro.garcomonline.controllers;
 
-import com.alvaro.garcomonline.models.UserModel;
 import com.alvaro.garcomonline.models.dtos.UserDTO;
 import com.alvaro.garcomonline.services.UserService;
 import jakarta.validation.Valid;

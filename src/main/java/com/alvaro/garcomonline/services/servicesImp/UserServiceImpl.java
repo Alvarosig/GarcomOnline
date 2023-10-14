@@ -43,8 +43,10 @@ public class UserServiceImpl implements UserService {
         Optional<UserModel> existingUser = userRepository.findById(id);
         if (existingUser.isPresent()) {
             UserModel user = existingUser.get();
+            user.setFullName(userDTO.getFullName());
             user.setUsername(userDTO.getUsername());
             user.setEmail(userDTO.getEmail());
+            user.setDateOfBirth(userDTO.getDateOfBirth());
             return toUserDTO(userRepository.save(user));
         } else {
             return null;

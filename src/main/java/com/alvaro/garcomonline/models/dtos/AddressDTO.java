@@ -1,21 +1,18 @@
-package com.alvaro.garcomonline.models;
+package com.alvaro.garcomonline.models.dtos;
 
-import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-@EqualsAndHashCode(of = "id")
-@Entity
-@Table(name = "TB_Address", schema = "garcom")
-public class AddressModel {
+@Getter
+@Setter
+public class AddressDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_address")
     private Integer id;
 
     @NotNull

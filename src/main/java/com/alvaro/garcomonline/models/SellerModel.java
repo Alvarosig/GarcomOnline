@@ -3,15 +3,13 @@ package com.alvaro.garcomonline.models;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+@Setter
 @EqualsAndHashCode(of = "id")
 @Entity
 @Table(name = "TB_Sellers", schema = "garcom")
@@ -24,15 +22,16 @@ public class SellerModel {
 
     @NotBlank(message = "O nome é obrigatório")
     @Length(min = 3, max = 35, message = "O nome deve ter no máximo {max} caracteres")
-    private String nome;
+    @Column(name = "name", nullable = false)
+    private String name;
 
     @NotNull
-    private String cpnj;
+    private String cnpj;
 
-    @NotNull
+    @NotBlank
     private String description;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_address")
     private AddressModel addressModel;
 

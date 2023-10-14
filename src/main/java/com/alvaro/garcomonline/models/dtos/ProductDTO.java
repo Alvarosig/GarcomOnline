@@ -1,7 +1,6 @@
 package com.alvaro.garcomonline.models.dtos;
 
-import com.alvaro.garcomonline.models.AddressModel;
-import jakarta.persistence.Column;
+import com.alvaro.garcomonline.models.SellerModel;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -10,29 +9,25 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 
-import java.time.LocalDate;
+import java.math.BigDecimal;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class UserDTO {
+public class ProductDTO {
 
     private Integer id;
 
     @NotBlank(message = "O nome é obrigatório")
     @Length(min = 3, max = 35, message = "O nome deve ter no máximo {max} caracteres")
-    private String fullName;
-
-    @Column(unique = true)
-    private String username;
-
-    @NotBlank
-    private String email;
+    private String name;
 
     @NotNull
-    private LocalDate dateOfBirth;
+    private BigDecimal price;
 
-    private AddressModel addressModel;
+    @NotNull
+    private Boolean status;
 
+    private SellerModel sellerModel;
 }
